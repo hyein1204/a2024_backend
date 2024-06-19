@@ -6,7 +6,7 @@ const dotenv = require('dotenv');
 dotenv.config(); 
 
 /* 포트 설정 */
-app.set('port', process.env.PORT || 3000);
+app.set('port', process.env.PORT || 4500);
 
 app.use(cors());
 /* 공통 미들웨어 */ 
