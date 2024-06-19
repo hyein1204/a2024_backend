@@ -20,14 +20,18 @@ app.use((req, res, next)=>{
     next();
 })
 
-// // 필요한 데이터로 변경하여 사용 
-// app.get('/user', (req, res) => { 
-//     res.send('user')
-// });
- 
-// localhost:4500/makeup
-
-app.use('/users', require('./routes/makeup')); 
+app.get('/', (req, res)=>{
+    const str = `
+    <h1>root</h1>
+    GET : localhost:4500/makeup <br>
+    GET : localhost:4500/board <br>
+    POST : localhost:4500/board <br>
+    PUT : localhost:4500/board/:id <br>
+    DELETE : localhost:4500/board/:id <br>
+    `
+    res.send(str)
+})
+app.use('/makeup', require('./routes/makeup')); 
 app.use('/board', require('./routes/board')); 
  
 // 그외의 라우트 처리 
