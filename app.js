@@ -5,19 +5,6 @@ const cors = require('cors')
 const dotenv = require('dotenv');
 dotenv.config(); 
 
-const makeup = require('./model/products.json')
-
-
-const mariadb = require('mariadb');
-const pool = mariadb.createPool({
-    host: '127.0.0.1',
-    user: 'root',
-    port:'3306',
-    password:'12345',
-    database:'mydb',
-    connectionLimit: 5
-})
-
 /* 포트 설정 */
 app.set('port', process.env.PORT || 3000);
 
@@ -32,9 +19,6 @@ app.use((req, res, next)=>{
     // logger 삽입
     next();
 })
-
-app.use('/users', require('./routes/users')); 
-// database를 사용하지 않으므로 테스트 불가
 
 // // 필요한 데이터로 변경하여 사용 
 // app.get('/user', (req, res) => { 
